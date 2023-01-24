@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import Nav from '../components/Nav';
 import A from '../components/A';
 
@@ -7,13 +7,13 @@ type User = {
     name: string;
 };
 
-const usersInitial: User[] = [
-    { id: 1, name: 'Biba' },
-    { id: 2, name: 'Boba' },
-];
+// const usersInitial: User[] = [
+//     { id: 1, name: 'Biba' },
+//     { id: 2, name: 'Boba' },
+// ];
 
-const Users = () => {
-    const [users, setUsers] = useState<User[]>(usersInitial);
+const Users = ({ users }) => {
+    // const [users, setUsers] = useState<User[]>(usersInitial);
     return (
         <div>
             <Nav />
@@ -30,3 +30,12 @@ const Users = () => {
 };
 
 export default Users;
+
+export async function getStaticProps(context) {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users`);
+    const users = await response.json();
+
+    return {
+        props: { users },
+    };
+}

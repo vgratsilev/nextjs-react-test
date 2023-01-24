@@ -1,6 +1,5 @@
 import ActiveLink from './ActiveLink';
-import styles from '../styles/Nav.module.css';
-import Link from 'next/link';
+import styles from '../styles/Nav.module.scss';
 
 const Nav = () => (
     <nav className={'navbar'}>
@@ -10,19 +9,13 @@ const Nav = () => (
                     background: orange;
                     padding: 15px;
                 }
-                .active {
-                    text-decoration: underline;
-                }
-                .active:after {
-                    content: ' (current page)';
-                }
             `}
         </style>
-        <ActiveLink activeClassName="active" className={styles.navLink} href="/">
+        <ActiveLink activeClassName={styles.active} className={styles.navLink} href="/">
             Main page
         </ActiveLink>
 
-        <ActiveLink activeClassName="active" className={styles.navLink} href="/users">
+        <ActiveLink activeClassName={styles.active} className={styles.navLink} href="/users">
             Users page
         </ActiveLink>
     </nav>
