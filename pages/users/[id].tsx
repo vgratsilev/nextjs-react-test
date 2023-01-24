@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router';
+import MainComponent from '../../components/MainComponent';
 
 export default function ({ user }) {
     const { query } = useRouter();
     return (
-        <div>
+        <MainComponent>
             <h1>{`User with id ${query.id}`}</h1>
             <div>{`User name is ${user.name}`}</div>
-        </div>
+        </MainComponent>
     );
 }
 

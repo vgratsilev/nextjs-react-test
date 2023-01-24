@@ -1,22 +1,14 @@
-// import { useState } from 'react';
-import Nav from '../components/Nav';
 import A from '../components/A';
+import MainComponent from '../components/MainComponent';
 
 type User = {
     id: number;
     name: string;
 };
 
-// const usersInitial: User[] = [
-//     { id: 1, name: 'Biba' },
-//     { id: 2, name: 'Boba' },
-// ];
-
-const Users = ({ users }) => {
-    // const [users, setUsers] = useState<User[]>(usersInitial);
+export default function Users({ users }) {
     return (
-        <div>
-            <Nav />
+        <MainComponent title={'Users page'}>
             <h1>Users</h1>
             <ul>
                 {users.map((user) => (
@@ -25,11 +17,9 @@ const Users = ({ users }) => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </MainComponent>
     );
-};
-
-export default Users;
+}
 
 export async function getStaticProps(context) {
     const response = await fetch(`https://jsonplaceholder.typicode.com/users`);

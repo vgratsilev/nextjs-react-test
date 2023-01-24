@@ -1,7 +1,7 @@
 {
   "name": "nextjs-react-test",
   "version": "1.0.0",
-  "description": "",
+  "description": "Test project to try Nextjs",
   "main": "index.tsx",
   "scripts": {
     "dev": "next dev",
